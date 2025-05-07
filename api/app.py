@@ -2,7 +2,7 @@
  
 from fastapi import FastAPI, UploadFile, File, Form, Depends, HTTPException
 from contextlib import asynccontextmanager
-from ..resume_analysis import ResumeAnalyzer
+from api.resume_analysis import ResumeAnalyzer
 from browser_use import Browser, BrowserConfig, Agent
 from langchain_openai import ChatOpenAI
 from supabase import create_client, Client
