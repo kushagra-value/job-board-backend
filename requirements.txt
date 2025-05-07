@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+langchain-openai
+motor
+PyPDF2
+python-docx
+pymongo
+python-dotenv
+browser_use
+multipart
