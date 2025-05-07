@@ -2,6 +2,12 @@ venv/**
 .env
 **/__pycache__/**
 
-
+tests/
+docs/
+*.pdf
+*.docx
+*.log
+__pycache__/
+*.pyc
 
 
