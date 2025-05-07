@@ -7,4 +7,4 @@ python-docx
 pymongo
 python-dotenv
 browser_use
-multipart
+python-multipart

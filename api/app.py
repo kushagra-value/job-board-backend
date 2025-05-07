@@ -2,7 +2,7 @@
  
 from fastapi import FastAPI, UploadFile, File, Form, Depends, HTTPException
 from contextlib import asynccontextmanager
-from resume_analysis import ResumeAnalyzer
+from ..resume_analysis import ResumeAnalyzer
 from browser_use import Browser, BrowserConfig, Agent
 from langchain_openai import ChatOpenAI
 from supabase import create_client, Client
@@ -109,7 +109,7 @@ def extract_text_sync(upload_file: UploadFile) -> str:
         raise HTTPException(status_code=400, detail="Unsupported file type. Only PDF, DOCX, and TXT are supported.")
 
 # Endpoint to analyze a resume
-@app.post("/analyze-resume")
+@app.post("/api/analyze-resume")
 async def analyze_resume(
     resume: UploadFile = File(...),
     job_description: str = Form(None),
@@ -242,7 +242,7 @@ async def get_db():
     return db_client['wellfound_candidates_db']
 
 # Endpoint to scrape candidates
-@app.post("/scrape-candidates")
+@app.post("/api/scrape-candidates")
 async def scrape_candidates(
     store_in_db: bool = Form(False),
     db: AsyncIOMotorDatabase = Depends(get_db)
@@ -256,6 +256,7 @@ async def scrape_candidates(
     except Exception as e:
         return {"error": str(e)}, 500
 
+application = app
 # Run the API
 if __name__ == "__main__":
     import uvicorn
