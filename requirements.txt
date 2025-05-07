@@ -8,3 +8,4 @@ pymongo
 python-dotenv
 browser_use
 python-multipart
+supabase
